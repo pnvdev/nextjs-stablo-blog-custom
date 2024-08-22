@@ -8,11 +8,12 @@ import {
   ChevronRightIcon
 } from "@heroicons/react/24/outline";
 
-export default function PaginationAuthor({
+export default function PaginationCustom({
   pageIndex,
   isFirstPage,
   isLastPage,
-  slug
+  slug,
+  type
 }) {
   const router = useRouter();
 
@@ -25,14 +26,14 @@ export default function PaginationAuthor({
     params.set("page", (pageIndex + 1).toString());
     const query = params.toString();
 
-    router.push(`/author/${slug}/?${query}`);
+    router.push(`/${type}/${slug}/?${query}`);
   };
 
   const handlePrevPage = () => {
     params.set("page", (pageIndex - 1).toString());
     const query = params.toString();
 
-    router.push(`/author/${slug}/?${query}`);
+    router.push(`/${type}/${slug}/?${query}`);
   };
 
   return (

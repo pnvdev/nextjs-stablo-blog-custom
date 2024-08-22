@@ -50,7 +50,7 @@ export default async function AuthorDefault({ params, searchParams }) {
           <Suspense
             key={searchParams.page || "1"}
             fallback={<Loading />}>
-            <Archive searchParams={searchParams} slug={params.slug}/>
+            <Archive searchParams={searchParams} slug={params.slug} type={'author'} />
           </Suspense>
     </Container>  
   )

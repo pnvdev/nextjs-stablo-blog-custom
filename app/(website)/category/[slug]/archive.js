@@ -1,7 +1,7 @@
 import PostList from "@/components/postlist";
 import PaginationCustom from "@/components/blog/paginationCustom";
 
-import { getPaginatedAuthorPosts } from "@/lib/sanity/client";
+import { getPaginatedCategoryPosts } from "@/lib/sanity/client";
 
 export default async function Post({ searchParams, slug }) {
   // Fetch the current page from the query parameters, defaulting to 1 if it doesn't exist
@@ -18,7 +18,7 @@ export default async function Post({ searchParams, slug }) {
     slug: slug
   };
 
-  const posts = await getPaginatedAuthorPosts(params);
+  const posts = await getPaginatedCategoryPosts(params);
 
   console.log('posts.length');
   console.log(posts.length);
@@ -26,7 +26,7 @@ export default async function Post({ searchParams, slug }) {
   
   // Check if the current page is the first or the last
   const isFirstPage = pageIndex < 2;
-  const isLastPage = posts.length <= POSTS_PER_PAGE;
+  const isLastPage = posts.length < POSTS_PER_PAGE;
 
   return (
     <>
@@ -48,6 +48,7 @@ export default async function Post({ searchParams, slug }) {
         isFirstPage={isFirstPage}
         isLastPage={isLastPage}
         slug={slug}
+        type={'category'}
       />
     </>
   );
