@@ -115,6 +115,13 @@ export async function getPostsByCategory(slug) {
   return {};
 }
 
+export async function getPostsByQuery(query) {
+  if (client) {
+    return (await client.fetch(searchquery, { query })) || {};
+  }
+  return {};
+}
+
 export async function getTopCategories() {
   if (client) {
     return (await client.fetch(catquery)) || [];

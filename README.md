@@ -27,7 +27,7 @@ Stablo is a JAMStack Blog template built with Next.js, Tailwind CSS & Sanity CMS
 | Archive (Pagination) | ✅  | ✅ |
 | Category Pages  | ✨  | ✅ |
 | Author Pages    | ✨  | ✅ |
-| Search Page     | ❌  | ✅ |
+| Search Page     | ✨  | ✅ |
 | Homepage - Default | ✅  | ✅ |
 | Homepage - Alternate       | ❌  | ✅ |
 | Homepage - Minimal | ❌  | ✅ |
